@@ -1,11 +1,11 @@
 <mat-card>
     <mat-card-header>
-      <mat-card-title>{{joke.title | uppercase}}</mat-card-title>
+      <mat-card-title>{{joke?.title | uppercase}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>{{joke.date | date : 'dd-MM-YYYY'}}</p>
-      <p>{{joke.content | suffix : '!' : 4}}</p>
-
-    
+      <p>{{joke?.date | date : 'dd-MM-YYYY'}}</p>
+      <p>{{joke?.content | suffix : '!' : 4}}</p>
+      <p> {{getText()}}</p>
+      <button (click)="likeJoke()"> Like </button>
     </mat-card-content>
 </mat-card>
