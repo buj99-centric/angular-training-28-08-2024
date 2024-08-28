@@ -1,3 +1,11 @@
 <app-joke-card #jokeCard
                [joke]="joke"
                (like)="likeJoke($event)"> </app-joke-card>
+
+<ng-container [ngSwitch]="comments.length">
+    <p *ngSwitchCase="0">No comments</p>
+    <p *ngSwitchCase="1">{{ comments[0] }}</p>
+    <ng-container *ngSwitchDefault>
+        <p *ngFor="let comment of comments">{{ comment }}</p>
+    </ng-container>
+</ng-container>

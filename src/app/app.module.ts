@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { JokeDetailsModule } from './joke-details/joke-details.module';
 import { JokeListComponent } from "./joke-list/joke-list.component";
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { JokeListComponent } from "./joke-list/joke-list.component";
   imports: [
     BrowserModule,
     JokeDetailsModule,
-    JokeListComponent
+    JokeListComponent,
+    AppRoutingModule
 ],
   providers: [],
   bootstrap: [AppComponent]

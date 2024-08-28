@@ -10,6 +10,8 @@ import { JokeCardComponent } from './joke-card/joke-card.component';
 export class JokeDetailsComponent implements AfterViewInit {
   @ViewChild('jokeCard') jokeCardComponent: JokeCardComponent | undefined; 
 
+  comments: string[] = [];
+
   constructor() {
   }
 
