@@ -1,1 +1,5 @@
-<p *ngIf="true">joke-list works!</p>
+<p *ngIf="true">A list of jokes!</p>
+
+<app-joke-card *ngFor="let joke of jokes"
+               [joke]="joke">
+</app-joke-card>

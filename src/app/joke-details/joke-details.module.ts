@@ -16,7 +16,8 @@ import { JokeDetailsComponent } from './joke-details.component';
     SuffixPipe
   ],
   exports: [
-    JokeDetailsComponent
+    JokeDetailsComponent,
+    JokeCardComponent
   ]
 })
 export class JokeDetailsModule { }
