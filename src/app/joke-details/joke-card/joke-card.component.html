@@ -3,6 +3,9 @@
       <mat-card-title>{{joke.title | uppercase}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      {{joke.content}}
+      <p>{{joke.date | date : 'dd-MM-YYYY'}}</p>
+      <p>{{joke.content | suffix : '!' : 4}}</p>
+
+    
     </mat-card-content>
 </mat-card>

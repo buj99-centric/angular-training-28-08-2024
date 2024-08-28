@@ -8,6 +8,8 @@ import { Joke } from '../models/joke.model';
 })
 export class JokeCardComponent {
   joke: Joke = {
-    title: "My joke", content: "Chuck Norris can drive an aircraft carrier by himself."
+    title: "My joke",
+    content: "Chuck Norris can drive an aircraft carrier by himself.",
+    date: new Date()
   };
 }
