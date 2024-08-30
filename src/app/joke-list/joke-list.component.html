@@ -44,7 +44,7 @@
 <form [formGroup]="formGroup">
   <label for="content">
     <input id="content" type="text" formControlName="content" />
-    <div *ngIf="formGroup.controls['content']"></div>
+    <div>{{ formGroup.controls["content"].errors | json }}</div>
   </label>
   <label for="author">
     <input id="author" type="text" formControlName="author" />

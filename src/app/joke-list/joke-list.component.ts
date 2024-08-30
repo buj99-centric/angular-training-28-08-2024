@@ -5,11 +5,14 @@ import { JokeDetailsModule } from '../joke-details/joke-details.module';
 import { ActivatedRoute } from '@angular/router';
 import { JokesService } from './jokes.service';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   FormsModule,
   NgForm,
   ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 
@@ -33,6 +36,7 @@ export class JokeListComponent {
     content: new FormControl<string | null>('', [
       Validators.required,
       Validators.minLength(4),
+      this.getCustomValidator(),
     ]),
     author: new FormControl<string | null>('', [Validators.required]),
   });
@@ -50,5 +54,17 @@ export class JokeListComponent {
   addJoke() {
     const { content, author } = this.formGroup.getRawValue();
     this.jokesService.addJoke(content, author);
+  }
+
+  getCustomValidator(): ValidatorFn {
+    return (control: AbstractControl<string>): ValidationErrors | null => {
+      if (!control.value.match('\\d{6}')) {
+        return {
+          customValidatorError: 'not a match',
+        };
+      }
+
+      return null;
+    };
   }
 }
