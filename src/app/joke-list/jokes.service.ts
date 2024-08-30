@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Joke } from '../joke-details/models/joke.model';
+import { filter, first, from, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,7 @@ export class JokesService {
     return this.jokes?.find((joke) => joke.id === id);
   }
 
+<<<<<<< Updated upstream
   addJoke(content: string, author: string) {
     const newId = this.jokes.length + 1;
     const newJoke: Joke = {
@@ -46,5 +48,17 @@ export class JokesService {
       date: new Date(),
     };
     this.jokes.push(newJoke);
+=======
+  getJokeById1(id: string): Observable<Joke | undefined> {
+    return of(this.getJokeById(id));
+  }
+
+  getJokeById2(id: string): Observable<Joke | undefined> {
+    return from(this.jokes).pipe(filter(joke => joke.id === id));
+  }
+
+  getJokeById3(id: string): Observable<Joke | undefined> {
+    return from(this.jokes).pipe(first(joke => joke.id === id));
+>>>>>>> Stashed changes
   }
 }

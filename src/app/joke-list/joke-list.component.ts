@@ -48,7 +48,9 @@ export class JokeListComponent {
 
     const params = this.activatedRoute.snapshot.params;
     if (params['id']) {
-      this.joke = this.jokesService.getJokeById(params['id']);
+      this.jokesService.getJokeById3(params['id']).subscribe(joke => {
+        this.joke = joke;
+      });
     }
   }
   addJoke() {

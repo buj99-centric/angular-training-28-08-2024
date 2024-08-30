@@ -2,11 +2,9 @@ import { Routes } from "@angular/router";
 import { FirstComponent } from "./first/first.component";
 import { SecondComponent } from "./second/second.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
-import { HttpClient } from "@angular/common/http";
-import { inject } from "@angular/core";
 
 async function delay3Seconds(): Promise<boolean> {
-    const x = inject(HttpClient);
+    //const x = inject(HttpClient);
     await new Promise(_ => setTimeout(_, 3000));
     return true;
 }
