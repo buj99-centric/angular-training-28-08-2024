@@ -36,4 +36,15 @@ export class JokesService {
   getJokeById(id: string) {
     return this.jokes?.find((joke) => joke.id === id);
   }
+
+  addJoke(content: string, author: string) {
+    const newId = this.jokes.length + 1;
+    const newJoke: Joke = {
+      id: newId.toString(),
+      content: content,
+      title: `Joke by ${author}`,
+      date: new Date(),
+    };
+    this.jokes.push(newJoke);
+  }
 }

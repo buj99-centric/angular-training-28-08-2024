@@ -6,7 +6,7 @@
   <app-joke-card *ngFor="let joke of jokes" [joke]="joke"> </app-joke-card>
 </ng-template>
 
-<form #newJockForm="ngForm" (ngSubmit)="addJoke(newJockForm)">
+<!-- <form #newJockForm="ngForm" (ngSubmit)="addJoke(newJockForm)">
   <input
     type="text"
     required
@@ -40,4 +40,14 @@
     </div>
   </div>
   <button type="submit">Add jocke</button>
+</form> -->
+<form [formGroup]="formGroup">
+  <label for="content">
+    <input id="content" type="text" formControlName="content" />
+    <div *ngIf="formGroup.controls['content']"></div>
+  </label>
+  <label for="author">
+    <input id="author" type="text" formControlName="author" />
+  </label>
+  <button (click)="addJoke()">Add joke</button>
 </form>
