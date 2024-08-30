@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { JokeDetailsModule } from './joke-details/joke-details.module';
 import { JokeListComponent } from "./joke-list/joke-list.component";
-import { AppRoutingModule } from './app.routing.module';
+import { provideRouter, RouterModule, withDebugTracing } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { LoaderComponent } from "./components/loader/loader.component";
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { AppRoutingModule } from './app.routing.module';
     BrowserModule,
     JokeDetailsModule,
     JokeListComponent,
-    AppRoutingModule
+    RouterModule,
+    LoaderComponent
 ],
-  providers: [],
+  providers: [provideRouter(appRoutes)], //, withDebugTracing()
   bootstrap: [AppComponent]
 })
 export class AppModule { }

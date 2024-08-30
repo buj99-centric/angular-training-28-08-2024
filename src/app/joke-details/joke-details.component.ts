@@ -29,6 +29,7 @@ export class JokeDetailsComponent implements AfterViewInit {
   }
 
   joke: Joke = {
+    id: '1',
     title: "My joke",
     content: "Chuck Norris can drive an aircraft carrier by himself.",
     date: new Date()

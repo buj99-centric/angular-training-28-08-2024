@@ -1,5 +1,10 @@
-<p *ngIf="true">A list of jokes!</p>
+<ng-container *ngIf="joke; else multipleJokesTemplate">
+    <app-joke-card [joke]="joke">
+    </app-joke-card>
+</ng-container>
 
-<app-joke-card *ngFor="let joke of jokes"
-               [joke]="joke">
-</app-joke-card>
+<ng-template #multipleJokesTemplate>
+    <app-joke-card *ngFor="let joke of jokes"
+                   [joke]="joke">
+    </app-joke-card>
+</ng-template>
