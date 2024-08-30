@@ -1,10 +1,43 @@
 <ng-container *ngIf="joke; else multipleJokesTemplate">
-    <app-joke-card [joke]="joke">
-    </app-joke-card>
+  <app-joke-card [joke]="joke"> </app-joke-card>
 </ng-container>
 
 <ng-template #multipleJokesTemplate>
-    <app-joke-card *ngFor="let joke of jokes"
-                   [joke]="joke">
-    </app-joke-card>
+  <app-joke-card *ngFor="let joke of jokes" [joke]="joke"> </app-joke-card>
 </ng-template>
+
+<form #newJockForm="ngForm" (ngSubmit)="addJoke(newJockForm)">
+  <input
+    type="text"
+    required
+    minlength="4"
+    [(ngModel)]="newJokeModel.newJokeContent"
+    name="content"
+    #newJokeContentControl="ngModel"
+  />
+  <div *ngIf="!newJokeContentControl.valid && newJokeContentControl.touched">
+    <div
+      *ngIf="
+        newJokeContentControl.errors && newJokeContentControl.errors['required']
+      "
+    >
+      Content is required
+    </div>
+    <div *ngIf=" newJokeContentControl.errors?.['minlength']">
+      Content must be at least 4 characters long
+    </div>
+  </div>
+  <input
+    type="text"
+    required
+    [(ngModel)]="newJokeModel.author"
+    name="author"
+    #newJokeAuthor="ngModel"
+  />
+  <div *ngIf="newJokeAuthor.valid && newJokeAuthor.touched">
+    <div *ngIf="newJokeAuthor.errors && newJokeAuthor.errors['required']">
+      author is requered
+    </div>
+  </div>
+  <button type="submit">Add jocke</button>
+</form>
